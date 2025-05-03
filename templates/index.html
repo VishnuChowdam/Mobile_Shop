@@ -1,0 +1,57 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% include 'slider.html' %}
+<style>
+     .product-card img {
+      height: 200px;
+      object-fit: contain;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .product-card {
+      text-align: center;
+      border-radius: 10px;
+      padding: 15px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .product-card .price {
+      text-decoration: line-through;
+      color: gray;
+    }
+    .product-card .discounted-price {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #28a745;
+    }
+    .btn-custom {
+      background-color:#f74802;
+      color: white;
+      border-radius: 20px;
+      width: 100%;
+    }
+    .btn-custom:hover {
+      background-color: #218838;
+    }
+</style>
+<div class="container my-5">
+    <h2 class="mb-4 text-center">FEATURED <span style="text-decoration:underline #f74802">PRODUCTS</span></h2>
+    <span><a style="color:#f74802;text-decoration:none" class="fs-4 float-end mb-3" href="{% url 'view_all' %}">view all  <i class="bi bi-arrow-right-circle-fill"></i></a></span>
+    <br><br><br>
+    <div class="row">
+        {% for phone in phones %}
+      <div class="col-md-3 mb-4">
+        <div class="card product-card">
+          <img src="{{phone.image}}" class="card-img-top" alt="Mobiles">
+          <h5 class="card-title">{{phone.model}}</h5>
+          <p><span class="price">$1300.00</span> <span class="discounted-price">${{phone.price}}</span></p>
+          <button class="btn btn-custom">ADD TO CART</button>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </div>
+{% include 'search.html' %}
+{% endblock content %}

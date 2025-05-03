@@ -1,0 +1,50 @@
+<style>
+
+</style>
+<form method="post" action="filter"><div class="container my-4">{% csrf_token %}
+    <div class="fs-1 my-5 text-center text-secondary">Filter Your Features</div>
+    <div class="row text-center border rounded py-3 px-2">
+        <div class="col-3">
+            <h3>Select Brand</h3>
+            <select name="brand">
+                <option value="select">select brand</option>
+                <option value="Oppo">oppo</option>
+                <option value="Apple">apple</option>
+                <option value="Vivo">vivo</option>
+            </select>
+        </div>
+        <div class="col-3">
+                        <h3>Select RAM</h3>
+            <select name="ram">
+                <option value="select">select RAM</option>
+                <option value="4 GB">4 GB</option>
+                <option value="8 GB">8 GB</option>
+                <option value="12 GB">12 GB</option>
+            </select>
+        </div>
+        <div class="col-3">
+                        <h3>Select storage</h3>
+            <select name="storage">
+                <option value="select">select Storage</option>
+                <option value="64 GB">64 GB</option>
+                <option value="128 GB">128 GB</option>
+                <option value="256 GB">256 GB</option>
+                <option value="512 GB">512 GB</option>
+            </select>
+
+        </div>
+        <div class="col-3">
+                        <h3>Select Price</h3>
+            <select name="price">
+                <option value="select">Select price</option>
+                <option value="800">Up to 800</option>
+                <option value="800-1000">800 to 1000</option>
+                <option value="1000+">1000 and above</option>
+            </select>
+        </div>
+           <div class="text-end me-10"><button class="btn btn-primary fs-5 my-4 end" style="width:100px;margin-right:80px">Filter&nbsp<i class="bi bi-filter"></i></button></div>
+    </div>
+
+</div>
+    <div class="text-danger fs-4 my-4 text-center">{{msg}}</div>
+</form>

@@ -1,0 +1,50 @@
+<style>
+    .navbar-toggler{
+    color:white;}
+</style>
+
+<nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a  class="navbar-brand" href="{% url 'home' %}">Mobiles</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span  class="navbar-toggler-icon"><i class=" fs-1 bi bi-list"></i></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form method="get" action="model_search" class="d-flex ms-auto"  role="search">
+              <input name="phone" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button type="submit" style="background-color:rgb(247, 90, 0);" class="btn">
+                <span style="color:white;font-weight: bold;" class="bi bi-search"></span>
+            </button>
+            </form>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
+                    {% if not check %}
+              <li class="nav-item">
+                  <button  data-bs-toggle="modal" data-bs-target="#signupModal" style="color:white;font-size: 21px;" class="h btn mx-3" type="submit">Sign up</button>
+              </li>
+              <li class="nav-item">
+                    <button
+  data-bs-toggle="modal"
+  data-bs-target="#loginModal" style="color:white;background-color:rgb(247, 90, 0);" class="btn mx-3 fs-5" type="submit">Sign in</button>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-cart-shopping" style="color:aliceblue;font-size: 28px;"></i>
+                                 <span id="cart-count"  class="cart-badge">0</span>
+                </a>
+            </li>
+                    {% else %}
+   <li class="nav-item">
+                <a href="{% url 'home' %}">
+                    <button style="color:white;background-color:rgb(247, 90, 0);" class="btn mx-3 fs-5" type="submit">Log out</button></a>
+              </li>
+   <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-cart-shopping" style="color:aliceblue;font-size: 28px;"></i>
+                                 <span id="cart-count"  class="cart-badge">0</span>
+                </a>
+            </li>
+{% endif %}
+             </ul>
+          </div>
+        </div>
+      </nav>

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+ {% block content %}
+<style>
+    .product-card {
+      display: flex;
+      border-radius: 10px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .product-card img {
+      width: 194px;
+      height: 228px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 15px;
+      flex: 1;
+    }
+    .badge-hot {
+      position: absolute;
+      background-color: red;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50%;
+      font-size: 12px;
+      top: 1px;
+      left: 1px;
+    }
+    .btn-orange{
+    background-color:rgb(255, 64, 0);
+    width:60px;
+    color:white;}
+    .btn-orange:hover{
+        background-color:rgb(230, 46, 0);
+        color:white;
+    }
+    .btn-custom {
+      background-color: #28a745;
+      color: white;
+      height:38px;
+      border-radius: 10px;
+      padding: 5px 10px;
+      border: none;
+    }
+    .btn-custom:hover {
+      background-color: #218838;
+      color:white;
+    }
+  </style>
+{% if m %}
+ <div class="container my-5 text-center">
+      <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="product-card position-relative">
+          <span class="badge-hot">off</span>
+          <img src="{{ m.image }}" alt="Product Image">
+          <div class="product-info">
+            <h5>{{ m.model }}</h5>
+            <p class="text-muted">
+              {{ m.ram }} RAM &nbsp;|&nbsp; {{ m.storage_capacity }} &nbsp;|&nbsp;
+              {{ m.processor }}
+            </p>
+            <h5 class="text-dark fs-3">${{ m.price }}</h5>
+            <p class="text-muted">
+              <small>USD <strike>$1400</strike> (Inclusive of all taxes)
+                <span style="color:#00B259">10% off</span>
+              </small>
+            </p>
+            <button class="btn btn-custom">Add to cart</button>
+            <button class="btn btn-orange m-3">Buy</button>
+          </div>
+        </div>
+      </div>
+      </div>
+     {% else %}
+     <div class="text-danger fs-3 my-5 text-center">{{msg}}</div>
+{% endif %}
+   <a href="{% url 'home' %}" class="btn btn-primary fs-6"><i class="bi bi-house-door fs-5"></i>  Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+    <style>
+          .gradient-box {
+  background-image: linear-gradient(orange,red);
+  }
+    </style>
+<form action="compare" method="get">
+<div style="color:red;font-weight:400" class="fs-1 pt-4 pb-2 text-center mb-3 ">Compare your Mobiles</div>
+<div class="container rounded border p-auto gradient-box mb-5">
+        <form action="compare" method="get">
+            <div class="d-flex justify-content-center gap-5 my-2">
+                <div> <label class="fs-3 my-4" for="mobile1">Search your Mobile1</label>
+                <input class="form-control mb-5" id="mobile1" name="mobile1" placeholder="Mobile1" type="search" required></div>
+
+                <div>  <label  class="fs-3 my-4" for="mobile2">Search your Mobile2</label>
+                     <input class="form-control w-100 mb-5"id="mobile2" name="mobile2"  placeholder="Mobile2" type="search" required></div>
+               </div>
+                        <div style="color:rgb(0, 0, 102)
+
+" class="mb-4 text-center fs-5">
+                        {{msg}}
+                        </div>
+            <div class="my-5 text-center">
+                <button style="width:200px" class="btn border-white py-2 fs-5  btn-primary fs-5" type="submit" ><i class="bi bi-plus-circle fs-4"></i>      Compare</button>
+</div>
+</form>
+</div>
